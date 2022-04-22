@@ -1,4 +1,4 @@
-# Lee-Carter-Model-Python-implementation
+# Lee-Carter-Model-and-mortality-forecasting-cross-validation-Python-implementation
 
 This code is a python Lee Carter model implementaion, as well as an implementation of a cross-validation methodology to test the performance of a given mortality forecasting model. It also contains a few helpful funtions to visual the results.
 
