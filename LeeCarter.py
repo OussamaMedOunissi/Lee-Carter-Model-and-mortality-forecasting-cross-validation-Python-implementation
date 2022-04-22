@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 
 # preparing the data
 
-# data downloded from the human mortality database
+# data downloded from the human mortality database (refer to "sweden.txt")
 
 def mort_rates_db(data_file):
 
