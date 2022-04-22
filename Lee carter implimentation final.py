@@ -4,6 +4,8 @@ import plotly.graph_objects as go
 
 # preparing the data
 
+# data downloded from the human mortality database
+
 def mort_rates_db(data_file):
 
     with open(data_file) as f:
@@ -32,6 +34,7 @@ def mort_rates_db(data_file):
 
     return [death_rates, ln_death_rates]
 
+# custom data in the same format of the "Both.txt" file 
 
 def mort_rates(data_file):
 
@@ -141,7 +144,7 @@ def forecast_mt(ax,bx,f_kt,start):
 
     return [mt_forc,years]
 
-# forecat using the lee carter method
+# forecat using the lee carter model
 
 def forc_lee_carter(log_mt,start,n):
 
@@ -406,49 +409,3 @@ def tabl(tab):
     fig.update_layout(width=1200, height=1600)
     fig.show()
     return 0
-
-# application
-
-
-data = mort_rates("Both.txt")
-t = 15
-m_data = gen_set_without_old(data[0],80)
-
-test = {}
-
-test[2008] = m_data[2006]
-test[2006] = m_data[2003]
-ben = gen_set_without_old(data[0], 80)
-
-x = mape(ben,test,20)
-
-
-e0 = cross_valid_forc_horizon(data,1977,2014,20,10,80,20)
-e1 = cross_valid_forc_horizon(data,1977,2014,18,10,80,20)
-e2 = cross_valid_forc_horizon(data,1977,2014,15,10,80,20)
-t1 = tab_forc_horizon(e0,20,1977,2014,"mape",True,-1,2010)
-t2 = tab_forc_horizon(e1,18,1977,2014,"mape",True,-1,2010)
-t3 = tab_forc_horizon(e2,15,1977,2014,"mape",True,-1,2010)
-
-swed = mort_rates_db("usa.txt")
-yf = [2010,2005,2000,1995]
-ya = [1940] * 4
-hor = [9,14,19,24]
-size = [2,2,2,2]
-v = True
-
-table5 = cross_valid_data_av(swed,ya[0],yf[0],size[0],hor[0],80,20)
-table10 = cross_valid_data_av(swed,ya[1],yf[1],size[1],hor[1],80,20)
-table15 = cross_valid_data_av(swed,ya[2],yf[2],size[2],hor[2],80,20)
-table20 = cross_valid_data_av(swed,ya[3],yf[3],size[3],hor[3],80,20)
-
-f0 = tab_data_av(table5,size[0],ya[0],yf[0],hor[0],"mape",v,-1)
-f1 = tab_data_av(table10,size[1],ya[1],yf[1],hor[1],"mape",v,-1)
-f2 = tab_data_av(table15,size[2],ya[2],yf[2],hor[2],"mape",v,-1)
-f3 = tab_data_av(table20,size[3],ya[3],yf[3],hor[3],"mape",v,-1)
-
-tabl(f3)
-
-#print(x)
-#print(e0["mape"])
-#print(e1["mape"])
