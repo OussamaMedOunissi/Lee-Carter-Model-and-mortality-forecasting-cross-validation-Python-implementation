@@ -10,4 +10,4 @@ A function to extract Data from files downloaded from the human mortality databa
 
 Thesis link: https://drive.google.com/file/d/1xPFEA8Q-8d5JYJKb_P04nlatfSEsgWyf/view?usp=sharing
 
-# For more questions and/or collaboration please contact me at oussamamedounissi@gmail.com.
+# For questions and/or collaboration please contact me at oussamamedounissi@gmail.com.
