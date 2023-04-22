@@ -70,11 +70,12 @@ def cal_ax(log_mt):
 
     n = len(log_mt[0])
     a = [0] * n
+    m = len(log_mt)
 
     for i in range(n):
         for coh in log_mt:
             a[i] += coh[i]
-        a[i] = a[i] / n
+        a[i] = a[i] / m
 
     return a
 
